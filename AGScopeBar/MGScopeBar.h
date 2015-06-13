@@ -33,6 +33,7 @@ typedef enum _MGScopeBarGroupSelectionMode {
 	float _totalGroupsWidthForPopups; // total width needed to show all groups expanded (excluding padding and accessory).
 	float _totalGroupsWidth; // total width needed to show all groups as native-width popups (excluding padding and accessory).
 	BOOL _smartResizeEnabled; // whether to do our clever collapsing/expanding of buttons when resizing (Smart Resizing).
+    BOOL _isReloading;
 }
 
 @property(assign) id<MGScopeBarDelegate> delegate; // should implement the MGScopeBarDelegate protocol.

@@ -119,6 +119,7 @@
 	// Resize if necessary.
 	[self sizeToFit];
 	
+    _isReloading = true;
 	// Remove any old objects.
 	if (_accessoryView) {
 		[_accessoryView removeFromSuperview];
@@ -318,7 +319,8 @@
 		// Layout subviews appropriately.
 		[self adjustSubviews];
 	}
-	
+    _isReloading = false;
+
 	[self setNeedsDisplay:YES];
 }
 
@@ -679,7 +681,9 @@
 - (void)resizeSubviewsWithOldSize:(NSSize)oldBoundsSize
 {
 	[super resizeSubviewsWithOldSize:oldBoundsSize];
-	[self adjustSubviews];
+    if (!_isReloading) {
+        [self adjustSubviews];
+    }
 }
 
 
